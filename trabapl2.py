@@ -1,4 +1,4 @@
-from math import pi
+from math import pi, sqrt
 
 def problema1():
 
@@ -18,35 +18,51 @@ def problema1():
     def custo():
         return (X * (4*pi*raio()) + Y * 2*pi*raio() * altura())
 
-    def resultado():
+    def saida():
         print(f"{raio():.2f}, {altura():.2f}, {area():.2f}, {custo():.2f}")
         return
     
-    resultado()
+    saida()
     return
-
 
 def problema2():
 
     X, Y = [int(d) for d in input().split()]
 
+    def funcao(x):
+        if x > 0:
+            return (sqrt(40**2 + (100-x)**2) / X) + x / Y
+        
+
     def derivada():
         # Retorna o ponto em que f''(x) = 0
-        a = (X**2) + (Y**2)
-        print(a)
-        b = (Y**2 * 200) + (X**2 * 200)
-        print(b)
-        c = (Y**2 * 100**2) + (X**2 * 40**2) + (X**2 * 100**2)
-        print(c)
+        a = X**2 - Y**2
+        b = (X**2 * -200) - (Y**2 * -200)
+        c =  (X**2 * 40**2) + (X**2 * 100**2) - (Y**2 * 100**2)
 
         D = (b**2 - 4*a*c)
-        print(D)
-        x1 = (-b + D**(1/2)) / (2*a)
-        x2 = (-b - D**(1/2)) / (2*a)
+        x1 = ((-b + D**(1/2)) / (2*a))
+        x2 = ((-b - D**(1/2)) / (2*a))
 
-        print(f'\nValor de x1: {x1}')
-        print(f'Valor de x2: {x2}')
+        lista = (x1, x2)
+        return lista
 
-    derivada()
+    def pontoMinimo():
+        x1, x2 = derivada()
+        if funcao(x1-1) > funcao(x1) and funcao(x1+1) > funcao(x1): return x1
+        else: return x2
 
+    def distanciaTotal():
+        ilhaestacao = sqrt(40**2 + pontoMinimo()**2)
+        total = ilhaestacao + (100 - pontoMinimo())
+        return total
+
+    def saida():
+        print(f"Distância da estação até a cidade: {100 - pontoMinimo():.3f}km")
+        print(f"Distância total: {distanciaTotal():.3f}km")
+
+    saida()
+    return
+
+problema1()
 problema2()
