@@ -2,24 +2,29 @@ from math import pi, sqrt
 
 def problema1():
 
-    V, X, Y = [int(d) for d in input().split()]
-    X = X/10000
-    Y = Y/10000
+    V = int(input("Volume da lata: "))
+    X = int(input("Custo da base e topo por m2: "))
+    Y = int(input("Custo da lateral por m2: "))
+    X = (X / 10000)
+    Y = (Y / 10000)
     
     def raio():
-        return ((V/(2*pi))**1/3)
+        return ((V/(2*pi))**(1/3))
 
     def altura():
-        return ((4*V/pi)**1/3)
+        return ((4*V/pi)**(1/3))
 
     def area():
-        return ((2*pi*raio() * altura()) + 2*(pi*(raio()**2)))
+        return (2*pi*raio() * altura() + 2*pi*raio()**2)
 
     def custo():
-        return (X * (4*pi*raio()) + Y * 2*pi*raio() * altura())
+        return (X * 2 * (pi * raio()**2) + Y * 2 * pi * raio() * altura())
 
     def saida():
-        print(f"{raio():.2f}, {altura():.2f}, {area():.2f}, {custo():.2f}")
+        print()
+        print("=" * 50)
+        print()
+        print(f"Raio: {raio():.3f} cm\nAltura: {altura():.3f} cm\nÁrea: {area():.3f} cm2\nCusto: R$ {custo():.2f}")
         return
     
     saida()
@@ -27,15 +32,13 @@ def problema1():
 
 def problema2():
 
-    X, Y = [int(d) for d in input().split()]
-
-    def funcao(x):
-        if x > 0:
-            return (sqrt(40**2 + (100-x)**2) / X) + x / Y
-        
+    X = int(input("Velocidade da barca em km/h: "))
+    Y = int(input("Velocidade do carro em km/h: "))
+    def funcao(var):
+        if var > 0:
+            return (sqrt(40**2 + (100-var)**2) / X) + var / Y
 
     def derivada():
-        # Retorna o ponto em que f''(x) = 0
         a = X**2 - Y**2
         b = (X**2 * -200) - (Y**2 * -200)
         c =  (X**2 * 40**2) + (X**2 * 100**2) - (Y**2 * 100**2)
@@ -53,16 +56,20 @@ def problema2():
         else: return x2
 
     def distanciaTotal():
-        ilhaestacao = sqrt(40**2 + pontoMinimo()**2)
-        total = ilhaestacao + (100 - pontoMinimo())
+        estacao_ate_cidade = sqrt(40**2 + (100 - pontoMinimo())**2) # Distância da barca
+        total = estacao_ate_cidade + pontoMinimo() # Distância da barca + distância do carro
         return total
 
     def saida():
-        print(f"Distância da estação até a cidade: {100 - pontoMinimo():.3f}km")
-        print(f"Distância total: {distanciaTotal():.3f}km")
+        print()
+        print("=" * 50)
+        print()
+        print(f"Distância da estação até a cidade: {pontoMinimo():.3f} km")
+        print(f"Distância total: {distanciaTotal():.3f} km")
 
     saida()
     return
 
 problema1()
 problema2()
+
