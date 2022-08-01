@@ -1,3 +1,14 @@
+"""
+1) Uma lata cilíndrica deve ter a capacidade de V 𝑐𝑚3. O material do topo e base da lata
+custa R$ X por 𝑚2, enquanto que o material com o qual os lados são feitos custa R$ Y por
+𝑚2. Encontre o raio da base e a altura da lata que minimiza o custo da lata. 
+
+2) Uma agência de turismo está organizando um serviço de barcas, de uma ilha situada a 40km
+de uma costa quase reta, para uma cidade que dista 100km. Se a barca tem uma velocidade de
+18km por hora e os carros tem uma velocidade média de 50km/h, onde deverá estar situada a
+estação das barcas a fim de tornar a viagem a mais rápida possível?
+"""
+
 from math import pi, sqrt
 
 def problema1():

@@ -1,3 +1,9 @@
+"""
+Dada uma função f :[a, b]→(0 ,∞), definido por y=f(x), contínua.
+Determine uma aproximação para a área da região plana limitada pelas retas x=a, x=b,
+y=0 e a curva y=f(x).
+"""
+
 def area_sob_curva():
 
     a = float(input("reta a: "))
@@ -5,7 +11,7 @@ def area_sob_curva():
     n = int(input("qtd. de subintervalos: "))
 
     def funcao(var):
-        return 2.718**(-2*var) + 2
+        return 5 - var**2
 
     #Tamanho do intervalo
     intervalo = (b - a)

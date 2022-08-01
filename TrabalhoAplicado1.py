@@ -1,5 +1,18 @@
-from tokenize import Double
+"""
+Programa que verifica a existência de soluções de funções contínuas através do Teorema do Valor Intermediário
 
+    Primeiramente, o algoritmo recebe duas entradas de números reais que representam os 
+limites do intervalo definido pelo usuário, e em seguida calcula o valor de f(x) para estes valores e 
+os armazena em suas respectivas variáveis. Posteriormente, o algoritmo calcula o produto entre os 
+valores de f(x) para verificar se há uma solução no intervalo, caso exista o programa continua a sua 
+execução, senão retorna uma mensagem para o usuário e encerra.
+
+    Na segunda parte do programa o intervalo contendo a solução da função é aproximado até 
+obter precisão de 1/10, e para isso cada extremo do intervalo é comparado com a média destes, 
+verificando se a solução se encontra no intervalo inferior ou superior à média e em seguida 
+descartando a metade do intervalo que não contém a média.
+
+"""
 
 def calculolimite():
 
